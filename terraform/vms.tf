@@ -7,12 +7,14 @@ resource  "azurerm_public_ip" "honeypot_ips" {
   allocation_method   = "Dynamic"
 }
 
-resource "azurerm_virtual_network" "honeypot" {
-  name                = "honeypot-network"
+resource "azurerm_virtual_network" "honeypot_vnets" {
+  for_each = var.azure_vms
+
+  name                = "${each.key}-vnet"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
-  address_space = [ "10.0.0.0/8" ]
+  address_space = [ each.value["subnet"] ]
 }
 
 resource "azurerm_subnet" "honeypot_subnets" {
@@ -21,7 +23,7 @@ resource "azurerm_subnet" "honeypot_subnets" {
   name                = "${each.key}-subnet"
   resource_group_name = azurerm_resource_group.rg.name
 
-  virtual_network_name = "${each.key}-vnet"
+  virtual_network_name = azurerm_virtual_network.honeypot_vnets[each.key].name
   address_prefixes     = [ each.value["subnet"] ]
 }
 
