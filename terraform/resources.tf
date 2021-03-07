@@ -36,7 +36,7 @@ resource "azurerm_log_analytics_solution" "sentinel" {
 }
 
 resource "azurerm_log_analytics_linked_storage_account" "law_storage" {
-  for_each = toset([ "customlogs", "query", "ingestion", "alerts" ])
+  for_each = toset([ "customlogs", "query", "Ingestion", "alerts" ])
 
   data_source_type      = each.key
   resource_group_name   = azurerm_resource_group.rg.name
