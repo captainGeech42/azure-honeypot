@@ -17,3 +17,4 @@ The following variables can be changed to customize the plan
 * `azure_region`: The Azure region to use
 * `azure_rg_name`: The name of the Azure resource group to create
 * `azure_sa_name`: The name of the Azure storage account to create
+* `azure_law_name`: The name of the Azure log analytics workspace to create
