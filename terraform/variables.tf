@@ -17,3 +17,27 @@ variable "azure_law_name" {
   type    = string
   default = "honeypot"
 }
+
+variable "azure_vm_username" {
+  type    = string
+  default = "Administrator"
+}
+
+variable "azure_vm_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "azure_vms" {
+  type = map(object({
+    size        = string
+    vm_hostname = string
+  }))
+
+  default = {
+    exchange = {
+      size        = "Standard_B2s"
+      vm_hostname = "ex2016-01"
+    }
+  }
+}
