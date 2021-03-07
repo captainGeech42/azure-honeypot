@@ -12,3 +12,25 @@ resource "azurerm_storage_account" "sa" {
   account_tier             = "Standard"
   account_replication_type = "ZRS"
 }
+
+resource "azurerm_log_analytics_workspace" "law" {
+  name                = "${var.azure_law_name}${random_integer.law.result}"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+
+  sku               = "PerGB2018"
+  retention_in_days = 30
+}
+
+resource "azurerm_log_analytics_solution" "sentinel" {
+  solution_name         = "SecurityInsights"
+  resource_group_name   = azurerm_resource_group.rg.name
+  location              = azurerm_resource_group.rg.location
+  workspace_resource_id = azurerm_log_analytics_workspace.law.id
+  workspace_name        = azurerm_log_analytics_workspace.law.name
+
+  plan {
+    publisher = "Microsoft"
+    product   = "OMSGallery/SecurityInsights"
+  }
+}

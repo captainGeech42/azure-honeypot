@@ -12,3 +12,8 @@ variable "azure_sa_name" {
   type    = string
   default = "honeypot"
 }
+
+variable "azure_law_name" {
+  type    = string
+  default = "honeypot"
+}
