@@ -3,3 +3,5 @@ add azure sentinel to the LAW
 
 OperationalInsights == Log Analytics Workspace
 SecurityInsights == Sentinel
+
+exchange 2016 cu19 download: https://www.microsoft.com/en-us/download/details.aspx?id=102532

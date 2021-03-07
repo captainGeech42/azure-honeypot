@@ -1,6 +1,25 @@
 # azure-honeypot
 Azure Honeypot Deployment (Terraform)
 
+## Usage
+
+1. Configure the necessary variables (see Variables below)
+1. Run the Terraform plan
+1. Configure the VMs
+  * See the Honeypot VMs section for details
+
+## Honeypot VMs
+
+### Exchange Server
+
+This honeypot is for the Exchange zero days that were disclosed in March 2021. Please run the following scripts (from `powershell/`) in this order:
+
+* `deploy-ad.ps1`
+  * Please note that this reboots the server
+* `configure-ad.ps1`
+* `deploy-exchange.ps1`
+  * Download Exchange first (can get it from [here](https://www.microsoft.com/en-us/download/details.aspx?id=102532))
+
 ## Variables
 
 The following environment variables are required:
