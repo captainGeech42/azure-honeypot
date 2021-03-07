@@ -32,12 +32,14 @@ variable "azure_vms" {
   type = map(object({
     size        = string
     vm_hostname = string
+    subnet      = string
   }))
 
   default = {
     exchange = {
       size        = "Standard_B2s"
       vm_hostname = "ex2016-01"
+      subnet      = "10.0.99.0/24"
     }
   }
 }
