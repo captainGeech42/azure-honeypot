@@ -1,5 +1,7 @@
 # Run this script after deploy-ad.ps1
 
+$ErrorActionPreference = "Stop"
+
 Import-Module ActiveDirectory
 
 # Configure password policy
