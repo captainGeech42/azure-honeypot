@@ -20,7 +20,7 @@ variable "azure_law_name" {
 
 variable "azure_vm_username" {
   type    = string
-  default = "Administrator"
+  default = "myadminuser"
 }
 
 variable "azure_vm_password" {
