@@ -8,9 +8,11 @@ param  (
 $ErrorActionPreference = "Stop"
 
 # Install AD DS
+Write-Host "Installing Active Directory Domain Services"
 Install-WindowsFeature AD-Domain-Services, RSAT-AD-Tools
 
 # Create forest
+Write-Host "Creating AD Forest"
 Import-Module ADDSDeployment
 Install-ADDSForest -DomainMode "WinThreshold" `
                    -ForestMode "WinThreshold" `
