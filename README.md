@@ -15,8 +15,10 @@ Azure Honeypot Deployment (Terraform)
 This honeypot is for the Exchange zero days that were disclosed in March 2021. Please run the following scripts (from `powershell/`) in this order:
 
 * `deploy-ad.ps1`
-  * Please note that this reboots the server
+  * Reboot once completed
 * `configure-ad.ps1`
+* `install-exchange-prereqs.ps1`
+  * Reboot once completed
 * `deploy-exchange.ps1`
   * Download Exchange first (can get it from [here](https://www.microsoft.com/en-us/download/details.aspx?id=102532))
 

@@ -21,4 +21,4 @@ Write-Host "Installing Visual C++ 2013"
 Invoke-WebRequest -Uri "https://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x64.exe" -OutFile "$Env:Temp\vcpp.exe"
 & "$Env:Temp\vcpp.exe" /q
 
-Write-Host "Please reboot before continuing Exchange deployment"
+Write-Host "Please go through the graphical .NET installer and then reboot before continuing Exchange deployment"
